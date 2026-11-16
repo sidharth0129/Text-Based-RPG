@@ -61,11 +61,18 @@ public:
     // TODO 4: the scene behind slot index.
     // Return nullptr if index is not a real slot.
     Scene<T>* getChoice(int index) const {
-        return nullptr;
+        if (index < 0 || index >= numChoices_) {
+            return nullptr;
+        }
+        return choices_[index];
     }
 
     // TODO 5: put next into slot index.
     // Do nothing if index is not a real slot.
     void setChoice(int index, Scene<T>* next) {
+        if (index < 0 || index >= numChoices_) {
+            return;
+        }
+        choices_[index] = next;
     }
 };
