@@ -7,6 +7,7 @@
 //   - choices_ must stay a double pointer: Scene<T>** choices_.
 //   - No std::vector, no std::array, no fixed-size array like choices_[3].
 //   - The scene OWNS data_ and every scene its slots point to.
+
 template <typename T>
 class Scene {
 private:
