@@ -264,7 +264,22 @@ void Adventure::printSpoilers() const {
 //   Path <path>: <scene text>
 // If the very first scene is an ending, print "Path (start): <scene text>".
 // Endings print in order: choice 1 before choice 2 before choice 3.
+
 void Adventure::printEndings(Scene<Moment>* scene, const std::string& path) const {
+    if (scene == nullptr) {
+        return;
+    }
+    if (scene->isEnding()) {
+        if (path.empty()) {
+            std::cout << "Path (start): " << scene->getData()->getText() << std::endl;
+        } else {
+            std::cout << "Path " << path << ": " << scene->getData()->getText() << std::endl;
+        }
+        return;
+    }
+    for (int i = 0; i < scene->getNumChoices(); i++) {
+        printEndings(scene->getChoice(i), extendPath(path, i + 1));
+    }
 }
 
 // TODO 17: the greedy advisor.
@@ -278,7 +293,45 @@ void Adventure::printEndings(Scene<Moment>* scene, const std::string& path) cons
 //     Path: <path>
 //     Loot: <loot>
 //     Result: died               (or "Result: reached an ending")
+
 void Adventure::greedyRun() const {
+    int hp = startHp_;
+    int loot = 0;
+    std::string path = "";
+    Scene<Moment>* scene = tree_.getRoot();
+
+    while (scene != nullptr) {
+        hp += scene->getData()->getHpChange();
+        loot += scene->getData()->getLoot();
+
+        if (hp <= 0 || scene->isEnding()) {
+            break;
+        }
+        int bestChoice = 0;
+        int mostLoot = scene->getChoice(0)->getData()->getLoot();
+
+        for (int i = 1; i < scene->getNumChoices(); i++) {
+            int choiceLoot = scene->getChoice(i)->getData()->getLoot();
+
+            if (choiceLoot > mostLoot) {
+                mostLoot = choiceLoot;
+                bestChoice = i;
+            }
+        }
+
+        path = extendPath(path, bestChoice + 1);
+        scene = scene->getChoice(bestChoice);
+    }
+
+    std::cout << "Greedy advisor" << std::endl;
+    std::cout << "  Path: " << path << std::endl;
+    std::cout << "  Loot: " << loot << std::endl;
+
+    if (hp <= 0) {
+        std::cout << "  Result: died" << std::endl;
+    } else {
+        std::cout << "  Result: reached an ending" << std::endl;
+    }
 }
 
 // TODO 18: the best total loot you can collect from scene down to an ending,
