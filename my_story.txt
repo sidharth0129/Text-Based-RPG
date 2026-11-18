@@ -1,6 +1,112 @@
 START_HP 10
-SCENE Replace this file with your own story.
+
+SCENE Sorcerer Yuji Itadori is beginning his descent into Shibuya.
 HP 0
 LOOT 0
 ITEM none
+CHOICES 3
+
+LABEL Attempt to take Ryomen Sukuna's power
+SCENE Yuji enters his mindscape and challenges Sukuna: The King of Curses.
+HP 0
+LOOT 8
+ITEM Cursed Tool: Slaughter Demon
+CHOICES 1
+
+LABEL Face the Cursed One
+SCENE Sukuna instantly cuts Yuji down with his domain: Malevolent Shrine.
+HP -20
+LOOT 1
+ITEM none
+CHOICES 0
+
+LABEL Call for backup
+SCENE Grade 1 Sorcerer Nanami Kento arrives to help Yuji.
+HP 0
+LOOT 2
+ITEM none
+CHOICES 2
+
+LABEL Follow Nanami into the station
+SCENE Yuji and Nanami enter the station together and search for civilians.
+HP 0
+LOOT 2
+ITEM none
+CHOICES 1
+
+LABEL Continue deeper underground
+SCENE A group of cursed spirits blocks the path.
+HP -2
+LOOT 3
+ITEM Cursed Energy Charm
+CHOICES 1
+
+LABEL Fight through the cursed spirits
+SCENE Yuji defeats the curses but takes damage during the fight.
+HP -1
+LOOT 4
+ITEM none
+CHOICES 1
+
+LABEL Continue toward the exit
+SCENE Yuji and Nanami reach the civilians and safely lead them out of the station.
+HP 0
+LOOT 5
+ITEM Rescue Badge
+CHOICES 0
+
+LABEL Leave the station with the first group of civilians
+SCENE Yuji decides not to risk going deeper and safely escorts the civilians outside.
+HP 0
+LOOT 3
+ITEM none
+CHOICES 0
+
+LABEL Search for Megumi
+SCENE Yuji finds Megumi fighting cursed spirits near another station entrance.
+HP 0
+LOOT 1
+ITEM none
+CHOICES 3
+
+LABEL Help Megumi escape
+SCENE Yuji and Megumi defeat the nearby curse and leave Shibuya safely.
+HP 0
+LOOT 2
+ITEM Cursed Talisman
+CHOICES 0
+
+LABEL Fight alongside Megumi
+SCENE Yuji joins Megumi as a stronger curse approaches them.
+HP -1
+LOOT 2
+ITEM none
+CHOICES 2
+
+LABEL Attack the curse together
+SCENE Yuji and Megumi combine their attacks and hit dual black flashes, defeating the curse.
+HP 0
+LOOT 3
+ITEM none
+CHOICES 0
+
+LABEL Distract the curse for Megumi
+SCENE Yuji draws the curse away while Megumi escapes and returns with help.
+HP 0
+LOOT 4
+ITEM Cursed Fragment
+CHOICES 0
+
+LABEL Split up from Megumi
+SCENE Yuji searches the lower tunnels alone and is attacked by another cursed spirit.
+HP -2
+LOOT 2
+ITEM none
+CHOICES 1
+
+LABEL Defeat the curse and return to Megumi
+SCENE Yuji defeats the curse and reunites with Megumi before leaving Shibuya.
+HP 0
+LOOT 3
+ITEM Broken Curse Fang
 CHOICES 0
